@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Android面试题(2018) | bersaty</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Android面试题(2018)</h1><a id="logo" href="/.">bersaty</a><p class="description">bersaty’s blog!</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Android面试题(2018)</h1><div class="post-meta">Jul 15, 2018<span> | </span><span class="category"><a href="/categories/Android/">Android</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、Java知识"><span class="toc-number">1.</span> <span class="toc-text">一、Java知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、Android相关知识"><span class="toc-number">2.</span> <span class="toc-text">二、Android相关知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、数据结构和算法"><span class="toc-number">3.</span> <span class="toc-text">三、数据结构和算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、app开发的架构"><span class="toc-number">4.</span> <span class="toc-text">四、app开发的架构</span></a></li></ol></div></div><div class="post-content"><h3 id="一、Java知识"><a href="#一、Java知识" class="headerlink" title="一、Java知识"></a>一、Java知识</h3><p>1、Java特性，多态，封装，继承。<br>2、Java集合框架Collection：</p>
+<ul>
+<li>ArrayList 数组非同步</li>
+<li>Vector 同步</li>
+<li>LinkedList 链表非同步</li>
+<li>HashMap 数组+链表，jdk1.8之后链表长度超8时变成红黑树。非同步</li>
+<li>HashTable 同步</li>
+<li>LinkedHashMap 双向链表+HashMap</li>
+<li>ConcurrentHashMap</li>
+</ul>
+<p>3、多线程，并发及线程基础。<br>多线程安全问题，不加锁怎么保证安全性？<br>加锁的机制是什么，monitor相关知识点。<br>有哪些锁？<br>手写一个死锁的例子，线程运行顺序等。<br>线程池，同步处理，锁。synchronize自动释放，性能低，lock手动释放。<br>4、jvm虚拟机，垃圾回收（GC），内存模型。<br>GCRoots：</p>
+<ul>
+<li>虚拟机栈(栈桢中的本地变量表)中的引用的对象</li>
+<li>方法区中的类静态属性引用的对象</li>
+<li>方法区中的常量引用的对象</li>
+<li>本地方法栈中JNI的引用的对象</li>
+</ul>
+<p>5、设计模式。平常使用的设计模式。23种设计模式。<br>6、抽象类与接口。<br>7、Java IO 与 NIO。<br>8、Java数据结构和算法。<br>9、基础类型。<br>10、Serializable和Parcelable。<br>11、sleep和wait的区别，sleep不释放锁，wait释放锁。<br>12、SpareArray<br>13、生产者和消费者模式,使用不同的锁实现，wait()和notify(),ReentrantLock,Condition<br>14、SingleTon的饿汉和懒汉<br><strong>饿汉：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">private SingleTon()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">//性能高点，适合很多地方使用时初始化</span><br><span class="line">private static final INSTANCE = new SingleTon();</span><br><span class="line"></span><br><span class="line">public SingleTon getSingleTon()&#123;</span><br><span class="line">truereturn INSTANCE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>懒汉：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">private SingleTon()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">private static INSTANCE = null</span><br><span class="line"></span><br><span class="line">public SingleTon getSingleTon()&#123;</span><br><span class="line">trueif(INSTANCE == null)&#123;</span><br><span class="line">    	synchronized (SingleTon.class)&#123;</span><br><span class="line">        	if(INSTANCE == null)&#123;</span><br><span class="line">            	INSTANCE = new SingleTon();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="二、Android相关知识"><a href="#二、Android相关知识" class="headerlink" title="二、Android相关知识"></a>二、Android相关知识</h3><p>1、四大组件。<br>2、IntenService工作原理。<br>3、Hadnler原理，消息机制。<br>4、View绘制流程，ViewGroup。<br>5、事件分发机制。<br>6、app启动过程，桌面启动，普通启动。<br>7、binder 和 aidl。<br>数据拷贝只需要一次，<br>8、Fragment。<br>9、AsyncTask。<br>10、动画帧动画，补间动画，属性动画。<br>11、Context。<br>12、线程和线程池。<br>13、postInvalidate，可用于线程刷新UI。<br>14、OOM，ANR的问题。主线程5s，广播10s，服务20s。<br>15、内存泄漏。</p>
+<ul>
+<li>非静态内部类的静态对象</li>
+<li>单例导致，单例使用非ApplicationContext</li>
+<li>Handler和主线程Looper还有MessageQueue关联</li>
+<li>广播注册后没有反注册</li>
+<li>文件，corsor等没有关闭</li>
+<li>WebView</li>
+</ul>
+<p>16、LruCache原理<br>17、ListView和RecyclerView的差别<br>18、子线程为什么不能更新UI，到处都去更新，引起絮乱咋办。<br>19、进程保活。<br>20、开源库</p>
+<ul>
+<li>Retrofit 动态代理</li>
+<li>OkHttp</li>
+<li>Volley</li>
+<li>RxJava 观察者模式</li>
+<li>EventBus 反射和注解</li>
+<li>Fresco</li>
+<li>Picasso</li>
+<li>Glide</li>
+</ul>
+<p>21、性能优化</p>
+<ul>
+<li>SysTrace 网页查看，耗时的地方，onLayout，onDraw等</li>
+<li>TraceView 方法占用CPU和调用次数</li>
+<li>HoerarchyViewer 查看布局层级</li>
+<li>Leakcanary 内存泄漏</li>
+<li>StrictMode 主线程IO，网络，读写DB，没有关闭file，cursor等</li>
+<li>GPU／CPU／Memory Monitor 查看对应资源的使用情况</li>
+<li>MAT（Memory Analyzer Tool）生成hprof，查看GCRoot引用链，查看内存泄漏问题</li>
+</ul>
+<p>22、ActivityManagerService，PackageManagerService，WindowManagerService。<br>23、MVC，MVP，MVVM。<br>24、图片加载和处理。<br>25、int和Integer的区别<br>Integer里-128～127会进行缓存，所以如果用==比较，部分情况会不期效果。<br>26、插件化，热更新。<br>27、ByBrid开发，weex,react native,flutter<br>28、Kotlin,Dart<br>29、TCP，UDP的区别，三次握手，四次握手。<br>30、网络模块，自己实现一个网络请求框架。长链接。</p>
+<h3 id="三、数据结构和算法"><a href="#三、数据结构和算法" class="headerlink" title="三、数据结构和算法"></a>三、数据结构和算法</h3><p>至少需要会手写这些：<br>1、快速排序<br>2、冒泡排序<br>3、插入排序<br>4、二分查找</p>
+<h3 id="四、app开发的架构"><a href="#四、app开发的架构" class="headerlink" title="四、app开发的架构"></a>四、app开发的架构</h3><p>1、通过需求分析，分析业务逻辑确定app框架。搭建框架目的是为了解耦，代码复用性和阅读效果，利于协助开发，稳定性和利于维护以及扩展，目前流行的框架MVP，MVVM，MVC都是经过长时间的市场考验，很值得借鉴。是否需要考虑跨平台。<br>2、UI架构的搭建，功能模块的划分，注册登录模块，用户模块，消息通知，设置等。<br>3、数据交互和API接口的定义，数据库的设计。<br>4、第三方库的引入，网路请求，异步同步处理，图片加载以及缓存等。<br>5、推送功能模块。<br>6、数据统计。<br>7、云通讯，地图定位。<br>8、开发过程把与业务无关的工具库独立出来。<br>9、性能测试，压力测试等。<br>10、Logger模块。</p>
+</div><div class="tags"><a href="/tags/Android面试/">Android面试</a></div><div class="post-nav"><a class="next" href="/2018/06/29/review/">一些面试记录</a></div><div id="container"></div><link rel="stylesheet" href="/css/default.css?v=0.0.0"><script src="/js/gitment.browser.js?v=0.0.0"></script><script>var gitment = new Gitment({
+  owner: 'bersaty## Your GitHub ID, e.g. username',
+  repo: 'https://github.com/bersaty/bersaty.github.io.git## The repository to store your comments, make sure you're the repo's owner, e.g. imsun.github.io',
+  oauth: {
+    client_id: '26ae80fa927b9e72774e## GitHub client ID, e.g. 75752dafe7907a897619',
+    client_secret: 'dc3116caf8e351394ed5df14b22ce502c7198a17## GitHub client secret, e.g. ec2fb9054972c891289640354993b662f4cccc50',
+  },
+})
+gitment.render('container')
+</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/tools/" style="font-size: 15px;">tools</a> <a href="/tags/Android面试/" style="font-size: 15px;">Android面试</a> <a href="/tags/view/" style="font-size: 15px;">view</a> <a href="/tags/game/" style="font-size: 15px;">game</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/07/15/Android面试题-2018/">Android面试题(2018)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/29/review/">一些面试记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/27/游戏/">游戏</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/24/卡片按压效果/">卡片按压效果</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/20/Hexo-github配置博客/">Hexo+github配置博客</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://www.jianshu.com/u/4cb5b23aa64a" title="我的简书" target="_blank">我的简书</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">bersaty.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
